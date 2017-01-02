@@ -1,2 +1,5 @@
 class Garbage:
-    pass
+
+    def __init__(self, name="garbage"):
+
+        self.name = name

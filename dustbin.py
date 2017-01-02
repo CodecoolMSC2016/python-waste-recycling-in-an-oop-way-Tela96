@@ -5,4 +5,26 @@ from dustbin_content_error import DustbinContentError
 
 
 class Dustbin:
-    pass
+
+    def __init__(self, color="white",):
+
+        self.color = color
+        self.paper_content = []
+        self.plastic_content = []
+        self.house_waste_content = []
+
+    def throw_out_garbage(self, garbage):
+
+        if type(garbage) == PlasticGarbage and garbage.is_clean:
+            self.plastic_content.append(garbage)
+        elif type(garbage) == PaperGarbage and garbage.is_squeezed:
+            self.paper_content.append(garbage)
+        elif type(garbage) == Garbage:
+            self.house_waste_content.append(garbage)
+        else:
+            raise DustbinContentError
+
+    def empty_contents(self):
+        self.plastic_content = []
+        self.paper_content = []
+        self.house_waste_content = []
